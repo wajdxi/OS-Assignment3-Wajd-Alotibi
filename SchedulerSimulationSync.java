@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 // ANSI Color Codes for enhanced terminal output
 class Colors {
@@ -14,7 +16,7 @@ class Colors {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     public static final String MAGENTA = "\u001B[35m";
-    public static final String BLUE = "\u001B[34m";
+    public static final String BLUE = "\u001B[34m"; 
     public static final String RED = "\u001B[31m";
     public static final String BG_BLUE = "\u001B[44m";
     public static final String BG_GREEN = "\u001B[42m";
