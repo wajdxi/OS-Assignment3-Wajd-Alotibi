@@ -202,6 +202,8 @@ class Process implements Runnable {
     }
     
     public void runToCompletion() {
+        try {
+        SharedResources.cpuSemaphore.acquire();
         // TODO: Similar synchronization needed here
         try {
             System.out.println(Colors.BRIGHT_CYAN + "  ⚡ " + Colors.BOLD + Colors.CYAN + name + 
@@ -218,6 +220,9 @@ class Process implements Runnable {
             System.out.println(Colors.BRIGHT_GREEN + "  ✓ " + Colors.BOLD + Colors.CYAN + name + 
                               Colors.RESET + Colors.BRIGHT_GREEN + " finished execution!" + Colors.RESET);
             System.out.println();
+            } finally {
+                SharedResources.cpuSemaphore.release();
+            }
         } catch (InterruptedException e) {
             System.out.println(Colors.RED + "  ✗ " + name + " was interrupted." + Colors.RESET);
         }
